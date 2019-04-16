@@ -1,0 +1,60 @@
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\bin\Debug\MyFirstProject2.exe.config
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\bin\Debug\MyFirstProject2.exe
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\bin\Debug\MyFirstProject2.pdb
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\bin\Debug\EntityFramework.dll
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\bin\Debug\EntityFramework.xml
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject2.csprojResolveAssemblyReference.cache
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\obj\Debug\MainWindow.g.cs
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\obj\Debug\App.g.cs
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject2_MarkupCompile.cache
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject2_MarkupCompile.lref
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\obj\Debug\MainWindow.baml
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject2.g.resources
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject2.Properties.Resources.resources
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject2.csproj.GenerateResource.Cache
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject2.exe
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject2.pdb
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject_db\AddBooks.g.cs
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject_db\WindowCRUD.g.cs
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject_db\AddBooks.baml
+C:\Users\денис\Desktop\my first project\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject_db\WindowCRUD.baml
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\bin\Debug\MyFirstProject2.exe.config
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject2.exe
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject2.pdb
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\bin\Debug\MyFirstProject2.exe
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\bin\Debug\MyFirstProject2.pdb
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\bin\Debug\EntityFramework.dll
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\bin\Debug\EntityFramework.xml
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\bin\Debug\de\System.Windows.Interactivity.resources.dll
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\bin\Debug\en\System.Windows.Interactivity.resources.dll
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\bin\Debug\es\System.Windows.Interactivity.resources.dll
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\bin\Debug\it\System.Windows.Interactivity.resources.dll
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\bin\Debug\ru\System.Windows.Interactivity.resources.dll
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject2.csprojResolveAssemblyReference.cache
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject_db\AddBooks.g.cs
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\obj\Debug\MainWindow.g.cs
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject_db\WindowCRUD.g.cs
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\obj\Debug\App.g.cs
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject2_MarkupCompile.cache
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject2_MarkupCompile.lref
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject_db\AddBooks.baml
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\obj\Debug\MainWindow.baml
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject_db\WindowCRUD.baml
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject2.g.resources
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject2.Properties.Resources.resources
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\obj\Debug\MyFirstProject2.csproj.GenerateResource.Cache
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\obj\Debug\Video.g.cs
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\obj\Debug\Video.baml
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\bin\Debug\GalaSoft.MvvmLight.WPF45.dll
+C:\Users\денис\Desktop\Паттерн MVVM\MyFirstProject2\MyFirstProject2\bin\Debug\GalaSoft.MvvmLight.WPF45.xml

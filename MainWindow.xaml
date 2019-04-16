@@ -1,0 +1,605 @@
+﻿<Window x:Class="MyFirstProject2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyFirstProject2"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1000">
+    
+    <Window.Resources>
+       
+        <ControlTemplate x:Key="TreeViewItemTemp">
+            <Border>
+                <ContentControl Name="CC" Tag="{TemplateBinding Name}" Content="{TemplateBinding Tag}">
+                        <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseUp">
+                            <i:InvokeCommandAction Command="{Binding ShowTreeViewBook}"
+                                           CommandParameter="{Binding ElementName=CC, Path=Tag}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ContentControl>
+            </Border>
+        </ControlTemplate>
+        
+        <Style TargetType="TreeViewItem">
+            <Style.Setters>
+                <Setter Property="Control.Tag" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Header}" />
+            </Style.Setters>
+
+            <Style.Triggers>
+                <Trigger Property="Control.IsFocused" Value="True">
+                    
+                    <Setter Property="Control.Template" Value="{StaticResource TreeViewItemTemp}" />
+                    <Setter Property="Control.Foreground" Value="Red" />
+                    <Setter Property="Control.FontSize" Value="14" />
+                    <Setter Property="Control.FontSize" Value="14" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Window.DataContext>
+        <local:ViewModel></local:ViewModel>
+    </Window.DataContext>
+
+    <Grid>
+        <TabControl Name="tabControl1">
+            <TabItem Header="WPF" IsSelected="True">
+
+                <Grid Name="firstGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Button x:Name="updateDataBase" Height="30" Content="DataBase" Command="{Binding UpdateDataBaseShow}" />
+                        
+                        <TreeView Grid.Row="1"  Margin="8">
+                            <TreeViewItem Header="001 Introduction and XAML" IsExpanded="False">
+                                <TreeViewItem Header="Info" Name="Introduction_and_XAML_Info" />
+                                <TreeViewItem Header="001_WPFApplication" Name="Introduction_and_XAML_WPFApplication" />
+                                <TreeViewItem Header="002_PropertiesInMarkUp" Name="Introduction_and_XAML_PropertiesInMarkUp"/>
+                                <TreeViewItem Header="003_EventsInMarkup" Name="Introduction_and_XAML_EventsInMarkup">
+                                    <TextBlock Foreground="Red">MouseEnter - курсор попал в область прямоугольника</TextBlock>
+                                    <TextBlock Foreground="Red">MouseLeave - курсор вышел за область прямоугольника</TextBlock>
+                                </TreeViewItem>
+                                <TreeViewItem Header="004_8Ball" Name="Introduction_and_XAML_8Ball">
+                                    <TextBlock Foreground="Red">Kурсор ожидания</TextBlock>
+                                    <TextBlock Foreground="Red">Метод случайной генерации ответа</TextBlock>
+                                </TreeViewItem>
+                                <TreeViewItem Header="Calculator" Name="Introduction_and_XAML_Calculator">
+                                    <TextBlock Foreground="Red">Добавляем обработчик для всех кнопок на гриде</TextBlock>
+                                    <TextBlock Foreground="Red">Получаем текст кнопки</TextBlock>
+                                </TreeViewItem>
+                            </TreeViewItem>
+                            <TreeViewItem Header="002 Layouts" IsExpanded="False">
+                                <TreeViewItem Header="Info" Name="Layouts_Info"/>
+                                <TreeViewItem Header="01_Grid" Name="Layouts_Grid" />
+                                <TreeViewItem Header="02_StackPanel" Name="Layouts_StackPanel" />
+                                <TreeViewItem Header="03_DockPanel" Name="Layouts_DockPanel" />
+                                <TreeViewItem Header="04_WrapPanel" Name="Layouts_WrapPanel" />
+                                <TreeViewItem Header="05_UniformGrid" Name="Layouts_UniformGrid" />
+                                <TreeViewItem Header="06_Canvas" Name="Layouts_Canvas" />
+                                <TreeViewItem Header="07_IncCanvas" Name="Layouts_IncCanvas" />
+                                <TreeViewItem Header="GridSpliter"  Name="Layouts_GridSpliter" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="003 Application" IsExpanded="False">
+                                <TreeViewItem Header="Info" Name="Application_Info" />
+                                <TreeViewItem Header="01_MainMethod" Name="Application_MainMethod" />
+                                <TreeViewItem Header="02_ApplicationEvents" Name="Application_ApplicationEvents" />
+                                <TreeViewItem Header="03_WindowsTracker"  Name="Application_WindowsTracker" />
+                                <TreeViewItem Header="04_SingleInstanceApplication" Name="Application_SingleInstanceApplication" />
+                                <TreeViewItem Header="05_WpfMultiThread" Name="Application_WpfMultiThread" />
+                                <TreeViewItem Header="06_BackgroundWorkerSample" Name="Application_BackgroundWorkerSample" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="004 Content" IsExpanded="False">
+                                <TreeViewItem Header="Info"  Name="Content_Info" />
+                                <TreeViewItem Header="01_ContentInWPF" Name="Content_ContentInWPF" />
+                                <TreeViewItem Header="02_DynamicContent" Name="Content_DynamicContent" />
+                                <TreeViewItem Header="03_ModularContent" Name="Content_ModularContent" >
+                                    <TextBlock Foreground="Red">FindLogicalNode()</TextBlock>
+                                </TreeViewItem>
+                                <TreeViewItem Header="04_ProprtyContent"  Name="Content_ProprtyContent" />
+                                <TreeViewItem Header="05_ScrollViewer"  Name="Content_ScrollViewer" />
+                                <TreeViewItem Header="06_GroupBox" Name="Content_GroupBox" />
+                                <TreeViewItem Header="07_TabControl" Name="Content_TabControl" />
+                                <TreeViewItem Header="08_Expander"  Name="Content_Expander" />
+                                <TreeViewItem Header="09_DecoratorBorder" Name="Content_DecoratorBorder" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="005 Dependency Properties Routed Events" IsExpanded="False">
+                                <TreeViewItem Header="Info"  Name="Dependency_Properties_Info" />
+                                <TreeViewItem Header="01_WpfDependency"  Name="Dependency_Properties_WpfDependency" />
+                                <TreeViewItem Header="02_WpfDependencyProperty"  Name="Dependency_Properties_WpfDependencyProperty" >
+                                    <TextBlock Foreground="Red">PropertyMetadata</TextBlock>
+                                </TreeViewItem>
+                                <TreeViewItem Header="03_WpfDependencyPropCallback"  Name="Dependency_Properties_WpfDependencyPropCallback" />
+                                <TreeViewItem Header="04_WpfRoutedEventSample"  Name="Dependency_Properties_WpfRoutedEventSample" />
+                                <TreeViewItem Header="05_BubledLabelClick" Name="Dependency_Properties_BubledLabelClick" />
+                                <TreeViewItem Header="06_Tunneling_eventsMETANIT.COM" Name="Dependency_Properties_Tunneling_events" />
+                                <TreeViewItem Header="07_Attached_eventsMETANIT.COM" Name="Dependency_Properties_Attached_events" />
+                                <TreeViewItem Header="08_KeyPressEvent"  Name="Dependency_Properties_KeyPressEvent" />
+                                <TreeViewItem Header="09_KeyModifiers"  Name="Dependency_Properties_KeyModifiers" />
+                                <TreeViewItem Header="10_OnlyNumbers"  Name="Dependency_Properties_OnlyNumbers" />
+                                <TreeViewItem Header="Создание свойств зависимостей Phone"  Name="Dependency_Properties_Phone"  />
+                            </TreeViewItem>
+                            <TreeViewItem Header="006 Classic Controls" IsExpanded="False">
+                                <TreeViewItem Header="Info" Name="Classic_Controls_Info" />
+                                <TreeViewItem Header="01_Label"  Name="Classic_Controls_Label" />
+                                <TreeViewItem Header="02_TextBox"  Name="Classic_Controls_TextBox" />
+                                <TreeViewItem Header="03_CheckBoxList" Name="Classic_Controls_CheckBoxList" />
+                                <TreeViewItem Header="04_RadioButtonList" Name="Classic_Controls_RadioButtonList" />
+                                <TreeViewItem Header="05_Transparent" Name="Classic_Controls_Transparent" />
+                                <TreeViewItem Header="06_ToolTip" Name="Classic_Controls_ToolTip" />
+                                <TreeViewItem Header="07_Popup" Name="Classic_Controls_Popup" />
+                                <TreeViewItem Header="08_ImageList" Name="Classic_Controls_ImageList" />
+                                <TreeViewItem Header="09_WPFFocus" Name="Classic_Controls_WPFFocus" />
+                                <TreeViewItem Header="10_EmbededFont" Name="Classic_Controls_EmbededFont" />
+                                <TreeViewItem Header="11_WpfMouseEvent" Name="Classic_Controls_WpfMouseEvent" />
+                                <TreeViewItem Header="12_MouseCapture" Name="Classic_Controls_MouseCapture" />
+                                <TreeViewItem Header="13_DragAndDrop" Name="Classic_Controls_DragAndDrop" />
+                                <TreeViewItem Header="METANIT_COM_ListBox" Name="METANIT_COM_ListBox" />
+                                <TreeViewItem Header="METANIT_COM_ComboBox" Name="METANIT_COM_ComboBox" />
+                                <TreeViewItem Header="METANIT_COM_ListView" Name="METANIT_COM_ListView" />
+                                <TreeViewItem Header="METANIT_COM_DataGrid" Name="METANIT_COM_DataGrid" />
+                                <TreeViewItem Header="METANIT_COM_Menu" Name="METANIT_COM_Menu" />
+                                <TreeViewItem Header="METANIT_COM_ContextMenu" Name="METANIT_COM_ContextMenu" />
+                                <TreeViewItem Header="METANIT_COM_ContextMenu" Name="METANIT_COM_TabControl" />
+                                <TreeViewItem Header="METANIT_COM_ToolBar" Name="METANIT_COM_ToolBar" />
+                                <TreeViewItem Header="METANIT_COM_TreeView" Name="METANIT_COM_TreeView" />
+                                <TreeViewItem Header="METANIT_COM_ProgressBar и Slider" Name="METANIT_COM_ProgressBar_Slider" />
+                                <TreeViewItem Header="METANIT_COM_Calendar_DatePicker" Name="METANIT_COM_Calendar_DatePicker" />
+                                <TreeViewItem Header="METANIT_COM_Image" Name="METANIT_COM_Image"/>
+                            </TreeViewItem>
+                            <TreeViewItem Header="007 Window" IsExpanded="False">
+                                <TreeViewItem Header="Info" Name="Window_Info" />
+                                <TreeViewItem Header="01_DialogsTypes"  Name="Window_DialogsTypes" />
+                                <TreeViewItem Header="02_WindowEvents"  Name="Window_WindowEvents" />
+                                <TreeViewItem Header="03_WindowPosition"  Name="Window_WindowPosition" />
+                                <TreeViewItem Header="03_WindowPositionSave"  Name="Window_WindowPositionSave" />
+                                <TreeViewItem Header="04_WindowsInteracting_smp1"  Name="Window_WindowsInteracting_smp1" />
+                                <TreeViewItem Header="05_WindowsInteracting_smp2"  Name="Window_WindowsInteracting_smp2" />
+                                <TreeViewItem Header="06_WindowsOwnership"  Name="Window_WindowsOwnership" />
+                                <TreeViewItem Header="06_SaveOpenFileDialogs"  Name="Window_SaveOpenFileDialogs" />
+                                <TreeViewItem Header="06_NotRectangularWindow"  Name="Window_NotRectangularWindow" />
+                                <TreeViewItem Header="06_NotRectangularWindow2"  Name="Window_NotRectangularWindow2" />
+                                <TreeViewItem Header="07_GlassEffect"  Name="Window_GlassEffect" />
+                                <TreeViewItem Header="08_PasswordWindowMETANIT.COM"  Name="Window_PasswordWindow" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="008 Commands" IsExpanded="False">
+                                <TreeViewItem Header="Info"  Name="Commands_Info" />
+                                <TreeViewItem Header="01_NewCommand"  Name="Commands_NewCommand" />
+                                <TreeViewItem Header="02_NewCommandXamlBinding"  Name="Commands_NewCommandXamlBinding" />
+                                <TreeViewItem Header="03_NewCommandMenu"   Name="Commands_NewCommandMenu" />
+                                <TreeViewItem Header="04_SimpleDocument"   Name="Commands_SimpleDocument" />
+                                <TreeViewItem Header="05_CustomCommand1"   Name="Commands_CustomCommand1" />
+                                <TreeViewItem Header="06_CustomCommand2"   Name="Commands_CustomCommand2" />
+                                <TreeViewItem Header="07_CustomCommand3_CommandParameter"   Name="Commands_CustomCommand3" />
+                                <TreeViewItem Header="08_CommandParameters"   Name="Commands_CommandParameters" />
+                                <TreeViewItem Header="09_CommandsMonitor"   Name="Commands_CommandsMonitor" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="009 Resources" IsExpanded="False">
+                                <TreeViewItem Header="Info"  Name="Resources_Info" />
+                                <TreeViewItem Header="01_AssemblyResources"  Name="Resources_AssemblyResources" />
+                                <TreeViewItem Header="02_ObjectResource"  Name="Resources_ObjectResource" />
+                                <TreeViewItem Header="03_DynamicResources"  Name="Resources_DynamicResources" />
+                                <TreeViewItem Header="04_ApplicationResource"  Name="Resources_ApplicationResource" />
+                                <TreeViewItem Header="05_SystemResources"  Name="Resources_SystemResources" />
+                                <TreeViewItem Header="06_WpfLocalization"  Name="Resources_WpfLocalization" />
+                                <TreeViewItem Header="07_WpfLocalizationSample2" Name="Resources_WpfLocalizationSample" />
+                                <TreeViewItem Header="08_Resources_METANIT.COM1" Name="Resources_METANIT_COM1" />
+                                <TreeViewItem Header="09_Resources_METANIT.COM2" Name="Resources_METANIT_COM2" />
+                                <TreeViewItem Header="10_Resources_METANIT.COM3" Name="Resources_METANIT_COM3" />
+                                <TreeViewItem Header="10_Resources_METANIT.COM_ResourceDictionary" Name="Resources_METANIT_COM_ResourceDictionary" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="010 Styles_Triggers" IsExpanded="False">
+                                <TreeViewItem Header="Info"  Name="Styles_Triggers_Info" />
+                                <TreeViewItem Header="01_ReuseFontResource"  Name="Styles_Triggers_ReuseFontResource" />
+                                <TreeViewItem Header="02_ReuseFontWithStyles"  Name="Styles_Triggers_ReuseFontWithStyles" />
+                                <TreeViewItem Header="03_StyleInheritance"  Name="Styles_Triggers_StyleInheritance" />
+                                <TreeViewItem Header="04_StyleProperties"  Name="Styles_Triggers_StyleProperties" />
+                                <TreeViewItem Header="05_StyleComplexValue"  Name="Styles_Triggers_StyleComplexValue" />
+                                <TreeViewItem Header="06_EventSetters"  Name="Styles_Triggers_EventSetters" />
+                                <TreeViewItem Header="07_SimpleTrigger"  Name="Styles_Triggers_SimpleTrigger" />
+                                <TreeViewItem Header="08_MultiTrigger"  Name="Styles_Triggers_MultiTrigger" />
+                                <TreeViewItem Header="09_DataTrigger"  Name="Styles_Triggers_DataTrigger" />
+                                <TreeViewItem Header="10_EventTrigger"  Name="Styles_Triggers_EventTrigger" />
+                                <TreeViewItem Header="11_EventTriggerMETANIT_COM"  Name="Styles_Triggers_EventTriggerMETANIT_COM" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="011 Shapes_Brushes" IsExpanded="False">
+                                <TreeViewItem Header="Info"  Name="Shapes_Brushes_Info" />
+                                <TreeViewItem Header="01_Shapes"  Name="Shapes_Brushes_Shapes" />
+                                <TreeViewItem Header="02_RoundetRectangles"  Name="Shapes_Brushes_RoundetRectangles" />
+                                <TreeViewItem Header="03_ViewBoxSample"  Name="Shapes_Brushes_ViewBoxSample" />
+                                <TreeViewItem Header="04_FillModeSample"  Name="Shapes_Brushes_FillModeSample" />
+                                <TreeViewItem Header="05_LineCapsSample"  Name="Shapes_Brushes_LineCapsSample" />
+                                <TreeViewItem Header="06_LineJoinSample"  Name="Shapes_Brushes_LineJoinSample" />
+                                <TreeViewItem Header="07_DashedLines"  Name="Shapes_Brushes_DashedLines" />
+                                <TreeViewItem Header="08_PlylineAndPloygon"  Name="Shapes_Brushes_PlylineAndPloygon" />
+                                <TreeViewItem Header="09_PolygonFill"  Name="Shapes_Brushes_PolygonFill" />
+                                <TreeViewItem Header="10_DevicePixels"  Name="Shapes_Brushes_DevicePixels" />
+                                <TreeViewItem Header="11_Gradients"  Name="Shapes_Brushes_Gradients" />
+                                <TreeViewItem Header="12_GradientText"  Name="Shapes_Brushes_GradientText" />
+                                <TreeViewItem Header="13_RadialGradient"  Name="Shapes_Brushes_RadialGradient" />
+                                <TreeViewItem Header="14_Brushes"  Name="Shapes_Brushes_Brushes" />
+                                <TreeViewItem Header="15_TypesOfTile"  Name="Shapes_Brushes_TypesOfTile" />
+                                <TreeViewItem Header="16_TyleFlip"  Name="Shapes_Brushes_TyleFlip" />
+                                <TreeViewItem Header="17_Transform"  Name="Shapes_Brushes_Transform" />
+                                <TreeViewItem Header="18_RotateElement"  Name="Shapes_Brushes_RotateElement" />
+                                <TreeViewItem Header="19_VisualBrush"  Name="Shapes_Brushes_VisualBrush" />
+                                <TreeViewItem Header="20_OpacityMask"  Name="Shapes_Brushes_OpacityMask" />
+                                <TreeViewItem Header="21_Reflaction"  Name="Shapes_Brushes_Reflaction" />
+                                <TreeViewItem Header="22_BitmapEffects"  Name="Shapes_Brushes_BitmapEffects" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="012 Geometry_Visual" IsExpanded="False">
+                                <TreeViewItem Header="Info"  Name="Geometry_Visual_Info" />
+                                <TreeViewItem Header="01_GeometryGroup"  Name="Geometry_Visual_GeometryGroup" />
+                                <TreeViewItem Header="02_GeometryCombineSmple"  Name="Geometry_Visual_GeometryCombineSmple" />
+                                <TreeViewItem Header="03_GeometryFewShapes"  Name="Geometry_Visual_GeometryFewShapes" />
+                                <TreeViewItem Header="04_Lines"  Name="Geometry_Visual_Lines" />
+                                <TreeViewItem Header="05_LinesCodeBehind"  Name="Geometry_Visual_LinesCodeBehind" />
+                                <TreeViewItem Header="05_3Arcs"  Name="Geometry_Visual_3Arcs" />
+                                <TreeViewItem Header="07_MiniLanguageGeometry"  Name="Geometry_Visual_MiniLanguageGeometry" />
+                                <TreeViewItem Header="08_ClipSample"  Name="Geometry_Visual_ClipSample" />
+                                <TreeViewItem Header="09_DrawingContext"  Name="Geometry_Visual_DrawingContext" />
+                                <TreeViewItem Header="10_ClassVisual"  Name="Geometry_Visual_ClassVisual" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="013 Templates" IsExpanded="False">
+                                <TreeViewItem Header="Info"  Name="Templates_Info" />
+                                <TreeViewItem Header="01_SimpleWindow"  Name="Templates_SimpleWindow" />
+                                <TreeViewItem Header="02_ControlTemplateBrowser"  Name="Templates_ControlTemplateBrowser" />
+                                <TreeViewItem Header="03_ButtonWithTemplate"  Name="Templates_ButtonWithTemplate" />
+                                <TreeViewItem Header="04_GradientButton"  Name="Templates_GradientButton" />
+                                <TreeViewItem Header="05_ListBoxTemplate"  Name="Templates_ListBoxTemplate" />
+                                <TreeViewItem Header="06_SimpleStyles"  Name="Templates_SimpleStyles" />
+                                <TreeViewItem Header="Shared"  Name="Resources_Shared" />
+                                <TreeViewItem Header="Button"  Name="Resources_Button" />
+                                <TreeViewItem Header="CheckBox"  Name="Resources_CheckBox" />
+                                <TreeViewItem Header="ComboBox"  Name="Resources_ComboBox" />
+                                <TreeViewItem Header="DocumentViewer"  Name="Resources_DocumentViewer" />
+                                <TreeViewItem Header="Expander"  Name="Resources_Expander" />
+                                <TreeViewItem Header="Frame"  Name="Resources_Frame" />
+                                <TreeViewItem Header="GroupBox"  Name="Resources_GroupBox" />
+                                <TreeViewItem Header="Label"  Name="Resources_Label" />
+                                <TreeViewItem Header="ListBox"  Name="Resources_ListBox" />
+                                <TreeViewItem Header="ListView"  Name="Resources_ListView" />
+                                <TreeViewItem Header="Menu"  Name="Resources_Menu" />
+                                <TreeViewItem Header="NavigationWindow"  Name="Resources_NavigationWindow" />
+                                <TreeViewItem Header="ProgressBar"  Name="Resources_ProgressBar" />
+                                <TreeViewItem Header="RadioButton"  Name="Resources_RadioButton" />
+                                <TreeViewItem Header="ResizeGrip"  Name="Resources_ResizeGrip" />
+                                <TreeViewItem Header="ScrollBar"  Name="Resources_ScrollBar" />
+                                <TreeViewItem Header="ScrollViewer"  Name="Resources_ScrollViewer" />
+                                <TreeViewItem Header="Separator"  Name="Resources_Separator" />
+                                <TreeViewItem Header="Slider"  Name="Resources_Slider" />
+                                <TreeViewItem Header="StatusBar"  Name="Resources_StatusBar" />
+                                <TreeViewItem Header="TabControl"  Name="Resources_TabControl" />
+                                <TreeViewItem Header="TextBox"  Name="Resources_TextBox" />
+                                <TreeViewItem Header="ToolBar"  Name="Resources_ToolBar" />
+                                <TreeViewItem Header="ToolTip"  Name="Resources_ToolTip" />
+                                <TreeViewItem Header="TreeView"  Name="Resources_TreeView" />
+                                <TreeViewItem Header="Window"  Name="Resources_Window" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="014 Data Binding" IsExpanded="False">
+                                <TreeViewItem Header="Info"  Name="Data_Binding_Info" />
+                                <TreeViewItem Header="01_WpfBinding"  Name="Data_Binding_WpfBinding" />
+                                <TreeViewItem Header="02_BindingElementToElement"  Name="Data_Binding_BindingElementToElement" />
+                                <TreeViewItem Header="03_MultipleBindings"  Name="Data_Binding_MultipleBindings" />
+                                <TreeViewItem Header="04_BindingFromCode"  Name="Data_Binding_BindingFromCode" />
+                                <TreeViewItem Header="05_SetNonDependencyProp"  Name="Data_Binding_SetNonDependencyProp" />
+                                <TreeViewItem Header="06_BindNotControl"  Name="Data_Binding_BindNotControl" />
+                                <TreeViewItem Header="07_RelativeSourceSample"  Name="Data_Binding_RelativeSourceSample" />
+                                <TreeViewItem Header="08_DataContextSample"  Name="Data_Binding_DataContextSample" />
+                                <TreeViewItem Header="08_DataContextMETANIT1"  Name="Data_Binding_DataContextMETANIT1" />
+                                <TreeViewItem Header="08_DataContextMETANIT2"  Name="Data_Binding_DataContextMETANIT2" />
+                                <TreeViewItem Header="08_DataContextMETANIT3"  Name="Data_Binding_DataContextMETANIT3" />
+                                <TreeViewItem Header="09_BindingToSQL"  Name="Data_Binding_BindingToSQL" />
+                                <TreeViewItem Header="10_UsingCollections"  Name="Data_Binding_UsingCollections" />
+                                <TreeViewItem Header="11_ConverterSample"  Name="Data_Binding_ConverterSample" />
+                                <TreeViewItem Header="11_ConverterSampleMETANIT"  Name="Data_Binding_ConverterSampleMETANIT" />
+                                <TreeViewItem Header="12_DataTemplate"  Name="Data_Binding_DataTemplate" />
+                                <TreeViewItem Header="13_INotifyPropertyChangedMETANIT"  Name="Data_Binding_INotifyPropertyChangedMETANIT" />
+                                <TreeViewItem Header="13_StringFormatMETANIT"  Name="Data_Binding_StringFormatMETANIT" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="015 Data Templates" IsExpanded="False">
+                                <TreeViewItem Header="Info"  Name="Data_Templates_Info" />
+                                <TreeViewItem Header="01_Data_Templates_METANIT"  Name="Data_Templates_METANIT" />
+                                <TreeViewItem Header="01_Triggers_METANIT"  Name="Data_Templates_Triggers_METANIT" />
+                                <TreeViewItem Header="01_ItemsPanel_METANIT"  Name="Data_Templates_ItemsPanel_METANIT" />
+                                <TreeViewItem Header="01_ObjectDataProvider_METANIT"  Name="Data_Templates_ObjectDataProvider_METANIT" />
+                                <TreeViewItem Header="01_ObjectDataProvider2_METANIT"  Name="Data_Templates_ObjectDataProvider2_METANIT" />
+                                <TreeViewItem Header="01_XmlDataProvider_METANIT"  Name="Data_Templates_XmlDataProvider_METANIT" />
+                                <TreeViewItem Header="01_ComboBoxBinding"  Name="Data_Templates_ComboBoxBinding" />
+                                <TreeViewItem Header="02_GridViewSample"  Name="Data_Templates_GridViewSample" />
+                                <TreeViewItem Header="03_TreeViewHierarchicalDataTemplate"  Name="Data_Templates_TreeViewSample" />
+                                <TreeViewItem Header="03_TreeViewHierarchicalDataTemplateMETANIT"  Name="Data_Templates_TreeViewHierarchicalDataTemplateMETANIT" />
+                                <TreeViewItem Header="03_TreeViewHierarchicalDataTemplateMETANIT2"  Name="Data_Templates_TreeViewHierarchicalDataTemplateMETANIT2" />
+                                <TreeViewItem Header="03_TreeViewXMLFileMETANIT"  Name="Data_Templates_XMLFileMETANIT" />
+                                <TreeViewItem Header="04_DirectoryTreeView"  Name="Data_Templates_DirectoryTreeView" />
+                                <TreeViewItem Header="05_DataGridSample"  Name="Data_Templates_DataGridSample" />
+                                <TreeViewItem Header="06_DataGridAndTable"  Name="Data_Templates_DataGridAndTable" />
+                                <TreeViewItem Header="07_DataGridColumns"  Name="Data_Templates_DataGridColumns" />
+                                <TreeViewItem Header="08_DataGridCellTemplate"  Name="Data_Templates_DataGridCellTemplate" />
+                                <TreeViewItem Header="09_DataGridGrouping"  Name="Data_Templates_DataGridGrouping" />
+                                <TreeViewItem Header="10_DataGridRowDeteils"  Name="Data_Templates_DataGridRowDeteils" />
+                                <TreeViewItem Header="11_DataGridTemplateSelector"  Name="Data_Templates_DataGridTemplateSelector" />
+                                <TreeViewItem Header="12_MenuSample"  Name="Data_Templates_MenuSample" />
+                                <TreeViewItem Header="12_MenuHierarchicalDataTemplateMETANIT"  Name="Data_Templates_MenuHierarchicalDataTemplateMETANIT"/>
+                                <TreeViewItem Header="13_SideBarMenu"  Name="Data_Templates_SideBarMenu" />
+                                <TreeViewItem Header="14_SubheadingInMenu"  Name="Data_Templates_SubheadingInMenu" />
+                                <TreeViewItem Header="15_ContextMenuSample"  Name="Data_Templates_ContextMenuSample" />
+                                <TreeViewItem Header="16_ToolbarSample"  Name="Data_Templates_ToolbarSample" />
+                                <TreeViewItem Header="17_ToolBarTrays"  Name="Data_Templates_ToolBarTrays" />
+                                <TreeViewItem Header="18_StatusBar"  Name="Data_Templates_StatusBar" />
+                                <TreeViewItem Header="19_Validation1METANIT"  Name="Data_Templates_Validation1METANIT" />
+                                <TreeViewItem Header="19_Validation2METANIT"  Name="Data_Templates_Validation2METANIT" />
+                                <TreeViewItem Header="19_Validation3METANIT"  Name="Data_Templates_Validation3METANIT" />
+                                <TreeViewItem Header="19_Validation4METANIT"  Name="Data_Templates_Validation4METANIT" />
+                                <TreeViewItem Header="19_Validation5METANIT"  Name="Data_Templates_Validation5METANIT" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="016 Documents_Printing" IsExpanded="False">
+                                <TreeViewItem Header="Info"  Name="Documents_Printing_Info" />
+                                <TreeViewItem Header="01_FolowContentSample"  Name="Documents_Printing_FolowContentSample" />
+                                <TreeViewItem Header="02_DocListSample"  Name="Documents_Printing_DocListSample" />
+                                <TreeViewItem Header="03_FigureInDocSample"  Name="Documents_Printing_FigureInDocSample" />
+                                <TreeViewItem Header="04_StyledDocument"  Name="Documents_Printing_StyledDocument" />
+                                <TreeViewItem Header="05_TextAlign"  Name="Documents_Printing_TextAlign" />
+                                <TreeViewItem Header="06_PagedContent"  Name="Documents_Printing_PagedContent" />
+                                <TreeViewItem Header="07_ReachTextBoxEditor"  Name="Documents_Printing_ReachTextBoxEditor" />
+                                <TreeViewItem Header="08_XPSViewer"  Name="Documents_Printing_XPSViewer" />
+                                <TreeViewItem Header="09_VisualPrintingSample"  Name="Documents_Printing_VisualPrintingSample" />
+                                <TreeViewItem Header="10_PrintFlowDocument"  Name="Documents_Printing_PrintFlowDocument" />
+                                <TreeViewItem Header="11_PrintCustomVisual"  Name="Documents_Printing_PrintCustomVisual" />
+                                <TreeViewItem Header="12_PrintWithoutUser"  Name="Documents_Printing_PrintWithoutUser" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="017 Animation" IsExpanded="False">
+                                <TreeViewItem Header="Info"  Name="Animation_Info" />
+                                <TreeViewItem Header="01_SimpleAnimation"  Name="Animation_SimpleAnimation" />
+                                <TreeViewItem Header="02_SimpleAnimation2"  Name="Animation_SimpleAnimation2" />
+                                <TreeViewItem Header="03_XAMLAnimation"  Name="Animation_XAMLAnimation" />
+                                <TreeViewItem Header="04_AnimationInStyle"  Name="Animation_AnimationInStyle" />
+                                <TreeViewItem Header="05_AnimationPlayer"  Name="Animation_AnimationPlayer" />
+                                <TreeViewItem Header="06_WipePlayer"  Name="Animation_WipePlayer" />
+                                <TreeViewItem Header="07_AnimationRates"  Name="Animation_AnimationRates" />
+                                <TreeViewItem Header="08_RotateAnimation"  Name="Animation_RotateAnimation" />
+                                <TreeViewItem Header="09_AnimationLayout"  Name="Animation_AnimationLayout" />
+                                <TreeViewItem Header="10_AnimFewTransforms"  Name="Animation_AnimFewTransforms" />
+                                <TreeViewItem Header="11_BrushAnimation"  Name="Animation_BrushAnimation" />
+                                <TreeViewItem Header="12_PathAnimation"  Name="Animation_PathAnimation" />
+                                <TreeViewItem Header="13_FrameBasedAnimation"  Name="Animation_FrameBasedAnimation" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="018 Media_UserControls" IsExpanded="False">
+                                <TreeViewItem Header="Info"  Name="Media_UserControls_Info" />
+                                <TreeViewItem Header="01_SoundPlayerSample"  Name="Media_UserControls_SoundPlayerSample" />
+                                <TreeViewItem Header="02_CodePlayback"  Name="Media_UserControls_CodePlayback" />
+                                <TreeViewItem Header="03_CodePlayback2"  Name="Media_UserControls_CodePlayback2" />
+                                <TreeViewItem Header="04_DeclarativePlayback"  Name="Media_UserControls_DeclarativePlayback" />
+                                <TreeViewItem Header="05_VideoPlaybackSample"  Name="Media_UserControls_VideoPlaybackSample" />
+                                <TreeViewItem Header="06_VideoReflection"  Name="Media_UserControls_VideoReflection" />
+                                <TreeViewItem Header="07_SpeechSynthesis"  Name="Media_UserControls_SpeechSynthesis" />
+                                <TreeViewItem Header="08_SimpleUserControl"  Name="Media_UserControls_SimpleUserControl" />
+                                <TreeViewItem Header="09_UserControlSample"  Name="Media_UserControls_UserControlSample" />
+                                <TreeViewItem Header="10_CustomControlSample"  Name="Media_UserControls_CustomControlSample" />
+                                <TreeViewItem Header="11_HostWindowsFormContol"  Name="Media_UserControls_HostWindowsFormContol" />
+                                <TreeViewItem Header="12_NotifyIconSample"  Name="Media_UserControls_NotifyIconSample" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="019 3D_Graphics" IsExpanded="False">
+                                <TreeViewItem Header="Info"  Name="_3D_Graphics_Info" />
+                                <TreeViewItem Header="3DTools"  Name="_3D_Graphics_3DTools" />
+                                <TreeViewItem Header="01_OneTriangle"  Name="_3D_Graphics_OneTriangle" />
+                                <TreeViewItem Header="02_CubeMeshSample"  Name="_3D_Graphics_CubeMeshSample" />
+                                <TreeViewItem Header="03_SphereSample"  Name="_3D_Graphics_SphereSample" />
+                                <TreeViewItem Header="04_Materials"  Name="_3D_Graphics_Materials" />
+                                <TreeViewItem Header="05_TextureMapping"  Name="_3D_Graphics_TextureMapping" />
+                                <TreeViewItem Header="06_VideoIn3D"  Name="_3D_Graphics_VideoIn3D" />
+                                <TreeViewItem Header="07_HitTesting"  Name="_3D_Graphics_HitTesting" />
+                                <TreeViewItem Header="08_TrackBallSample"  Name="_3D_Graphics_TrackBallSample" />
+                                <TreeViewItem Header="09_ElementsIn3D"  Name="_3D_Graphics_ElementsIn3D" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="020 MVVM" IsExpanded="False">
+                                <TreeViewItem Header="Info"  Name="MVVM_Info" />
+                                <TreeViewItem Header="01_MVVM_Sample"  Name="MVVM_Sample" />
+                                <TreeViewItem Header="02_MVVM_Sample.Tests"  Name="MVVM_Sample_Tests" />
+                                <TreeViewItem Header="03_MVVMLight_Sample"  Name="MVVMLight_Sample" />
+                                <TreeViewItem Header="04_MVVMLight_Messaging"  Name="MVVMLight_Messaging" />
+                            </TreeViewItem>
+
+
+                        </TreeView>
+
+
+                    </Grid>
+
+                    <Grid  x:Name="ControlLibrary"  Grid.Column="1">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            
+                            <Grid>
+                                <DocumentViewer Visibility="Collapsed" Name="ControlLibraryDocViewer"/>
+
+                                <StackPanel Visibility="Visible"  Name="ControlLibrary_StackPanelForImage"  ></StackPanel>
+                            </Grid>
+                        </ScrollViewer>
+
+                        <StackPanel Name="StackPanel1" Grid.Column="1" >
+                            <TreeView Width="200"  Margin="8" Grid.Column="1" >
+                                <TreeViewItem Style="{x:Null}" IsExpanded="False" Name="TreeBook" Header="TreeView">
+                                    <TreeViewItem Style="{x:Null}" Name="InfoVis" Visibility="Collapsed" Header="Info">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseUp">
+                                                <i:InvokeCommandAction Command="{Binding ShowBook}" 
+                                                                       CommandParameter="InfoVis"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TreeViewItem>
+                                    <TreeViewItem Style="{x:Null}" Name="ImageVis" Visibility="Collapsed" Header="Image">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseUp">
+                                                <i:InvokeCommandAction Command="{Binding ShowImage}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TreeViewItem>
+                                    <TreeViewItem Style="{x:Null}" Name="MainWindow_xamlVis" Visibility="Collapsed" Header="MainWindow.xaml">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseUp">
+                                                <i:InvokeCommandAction Command="{Binding ShowBook}" 
+                                                                       CommandParameter="MainWindow_xamlVis"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TreeViewItem>
+                                    <TreeViewItem Style="{x:Null}" Name="MainWindow_csVis" Visibility="Collapsed" Header="MainWindow.cs">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseUp">
+                                                <i:InvokeCommandAction Command="{Binding ShowBook}"
+                                                                      CommandParameter="MainWindow_csVis"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TreeViewItem>
+                                    <TreeViewItem Style="{x:Null}" Name="App_xamlVis" Visibility="Collapsed" Header="App_xaml">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseUp">
+                                                <i:InvokeCommandAction Command="{Binding ShowBook}"
+                                                                      CommandParameter="App_xamlVis"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TreeViewItem>
+                                    <TreeViewItem Style="{x:Null}" Name="App_csVis" Visibility="Collapsed" Header="App_cs">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseUp">
+                                                <i:InvokeCommandAction Command="{Binding ShowBook}"
+                                                                      CommandParameter="App_csVis"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TreeViewItem>
+                                    <TreeViewItem Style="{x:Null}" Name="App_configVis" Visibility="Collapsed" Header="App_config">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseUp">
+                                                <i:InvokeCommandAction Command="{Binding ShowBook}"
+                                                                      CommandParameter="App_configVis"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TreeViewItem>
+                                    <TreeViewItem Style="{x:Null}" Name="Class_1Vis" Visibility="Collapsed" Header="Class_1">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseUp">
+                                                <i:InvokeCommandAction Command="{Binding ShowBook}"
+                                                                      CommandParameter="Class_1Vis"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TreeViewItem>
+                                    <TreeViewItem Style="{x:Null}" Name="Class_2Vis" Visibility="Collapsed" Header="Class_2">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseUp">
+                                                <i:InvokeCommandAction Command="{Binding ShowBook}"
+                                                                      CommandParameter="Class_2Vis"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TreeViewItem>
+                                    <TreeViewItem Style="{x:Null}" Name="Class_3Vis" Visibility="Collapsed" Header="Class_3">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseUp">
+                                                <i:InvokeCommandAction Command="{Binding ShowBook}"
+                                                                      CommandParameter="Class_3Vis"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TreeViewItem>
+                                    <TreeViewItem Style="{x:Null}" Name="Class_4Vis" Visibility="Collapsed" Header="Class_4">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseUp">
+                                                <i:InvokeCommandAction Command="{Binding ShowBook}"
+                                                                      CommandParameter="Class_4Vis"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TreeViewItem>
+                                    <TreeViewItem Style="{x:Null}" Name="Class_5Vis" Visibility="Collapsed" Header="Class_5">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseUp">
+                                                <i:InvokeCommandAction Command="{Binding ShowBook}"
+                                                                      CommandParameter="Class_5Vis"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TreeViewItem>
+                                    <TreeViewItem Style="{x:Null}" Name="Class_6Vis" Visibility="Collapsed" Header="Class_6">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseUp">
+                                                <i:InvokeCommandAction Command="{Binding ShowBook}"
+                                                                      CommandParameter="Class_6Vis"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TreeViewItem>
+                                    <TreeViewItem Style="{x:Null}" Name="Class_7Vis" Visibility="Collapsed" Header="Class_7">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseUp">
+                                                <i:InvokeCommandAction Command="{Binding ShowBook}"
+                                                                      CommandParameter="Class_7Vis"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TreeViewItem>
+                                    <TreeViewItem Style="{x:Null}" Name="Class_8Vis" Visibility="Collapsed" Header="Class_8">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseUp">
+                                                <i:InvokeCommandAction Command="{Binding ShowBook}"
+                                                                      CommandParameter="Class_8Vis"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TreeViewItem>
+                                    <TreeViewItem Style="{x:Null}" Name="Class_9Vis" Visibility="Collapsed" Header="Class_9">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseUp">
+                                                <i:InvokeCommandAction Command="{Binding ShowBook}"
+                                                                      CommandParameter="Class_9Vis"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TreeViewItem>
+                                    <TreeViewItem Style="{x:Null}" Name="Class_10Vis" Visibility="Collapsed" Header="Class_10">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseUp">
+                                                <i:InvokeCommandAction Command="{Binding ShowBook}"
+                                                                      CommandParameter="Class_10Vis"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TreeViewItem>
+
+                                </TreeViewItem>
+                            </TreeView>
+
+                            <Button Content="Video" 
+                                 Name="ControlLibrar_VideoButton" 
+                                 Command="{Binding ShowVideo}"
+                                 Height="23" 
+                                 Width="102"
+                                 HorizontalAlignment="Center" 
+                                 VerticalAlignment="Bottom"
+                                 />
+                        </StackPanel>
+                    </Grid>
+
+
+                </Grid>
+
+            </TabItem>
+
+            <TabItem Header="Category 2">
+
+            </TabItem>
+
+            <TabItem Header="Category 3" />
+
+        </TabControl>
+
+    </Grid>
+</Window>

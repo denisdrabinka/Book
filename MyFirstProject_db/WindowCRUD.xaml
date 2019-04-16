@@ -1,0 +1,145 @@
+﻿<Window x:Class="MyFirstProject2.WindowCRUD"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyFirstProject2"
+        mc:Ignorable="d"
+        Title="CRUD" Height="400" Width="1000">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <ScrollViewer HorizontalScrollBarVisibility="Visible">
+            <Grid Margin="20">
+           
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="5" />
+            
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.Row="0">Name</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="0"  Name="NameForm"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="2">MyImage1</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="2"  Name="MyImage1Form"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="4">MainWindow_xaml</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="4"  Name="MainWindow_xamlForm" SpellCheck.IsEnabled="True"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="6">MainWindow_cs</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="6"  Name="MainWindow_csForm"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="8">VideoSource</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="8"  Name="VideoSourceForm"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="10">VideoTime</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="10"  Name="VideoTimeForm"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="12">Info</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="12"  Name="InfoForm"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="14">Class_1</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="14"  Name="Class_1Form"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="16">Class_2</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="16"  Name="Class_2Form"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="18">Class_3</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="18"  Name="Class_3Form"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="20">Class_4</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="20"  Name="Class_4Form"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="22">App_config</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="22"  Name="App_configForm"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="24">App_xaml</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="24"  Name="App_xamlForm"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="26">App_xaml_cs</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="26"  Name="App_xaml_csForm"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="28">MyImage2</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="28"  Name="MyImage2Form"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="30">Class_5</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="30"  Name="Class_5Form"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="32">Class_6</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="32"  Name="Class_6Form"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="34">Class_7</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="34"  Name="Class_7Form"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="36">Class_8</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="36"  Name="Class_8Form"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="38">Class_9</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="38"  Name="Class_9Form"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="40">Class_10</TextBlock>
+        <TextBox Grid.Column="1" Grid.Row="40"  Name="Class_10Form"/>
+            
+        </Grid>
+        </ScrollViewer>
+        
+        <WrapPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" >
+            <Button IsDefault="True" Click="Accept_Click" MinWidth="60" Margin="0,0,10,0">OK</Button>
+            <Button IsCancel="True" MinWidth="60">Отмена</Button>
+        </WrapPanel>
+
+    </Grid>
+</Window>
